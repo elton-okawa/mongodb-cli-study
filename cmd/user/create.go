@@ -6,11 +6,12 @@ import (
 	"time"
 
 	"alwaysremember.com/mongodb-cli/pkg/db"
+	"alwaysremember.com/mongodb-cli/pkg/model"
 	"github.com/spf13/cobra"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 var name string
+var age int
 
 var createUser = &cobra.Command{
 	Use:   "create",
@@ -24,8 +25,9 @@ var createUser = &cobra.Command{
 
 		collection := client.Database(databaseName).Collection(collectionName)
 
-		res, err := collection.InsertOne(ctx, bson.D{
-			{Key: "name", Value: name},
+		res, err := collection.InsertOne(ctx, model.User{
+			Name: name,
+			Age:  age,
 		})
 
 		if err != nil {
@@ -47,5 +49,6 @@ func init() {
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	createUser.Flags().StringVarP(&name, "name", "n", "", "User name")
+	createUser.Flags().StringVar(&name, "name", "", "User name")
+	createUser.Flags().IntVar(&age, "age", 0, "User age")
 }
