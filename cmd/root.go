@@ -6,6 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"alwaysremember.com/mongodb-cli/cmd/user"
 	"github.com/spf13/viper"
 )
 
@@ -44,6 +45,12 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	addCommands()
+}
+
+func addCommands() {
+	rootCmd.AddCommand(user.GetCommands())
 }
 
 // initConfig reads in config file and ENV variables if set.
