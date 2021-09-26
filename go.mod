@@ -1,4 +1,4 @@
-module alwaysremember.com/mongodb-cli
+module mongodb-cli
 
 go 1.13
 

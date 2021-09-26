@@ -6,7 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"alwaysremember.com/mongodb-cli/cmd/user"
+	"mongodb-cli/cmd/user"
+
 	"github.com/spf13/viper"
 )
 

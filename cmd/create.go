@@ -5,7 +5,8 @@ import (
 	"log"
 	"time"
 
-	"alwaysremember.com/mongodb-cli/pkg/db"
+	"mongodb-cli/pkg/db"
+
 	"github.com/spf13/cobra"
 	"go.mongodb.org/mongo-driver/bson"
 )
