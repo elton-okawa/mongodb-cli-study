@@ -9,6 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+// TODO get host and credentials via config
 const HOST string = "mongodb://root:root@localhost:27017"
 
 var instance *mongo.Client
